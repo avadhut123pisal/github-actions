@@ -45,7 +45,6 @@ jobs:
           files: ./cover.out
           flags: unittests # optional
           name: codecov-umbrella # optional
-          path_to_write_report: ./coverage/codecov_report.txt
           fail_ci_if_error: true # optional (default = false)
           verbose: true # optional (default = false)
       - name: Run Gosec Security Scanner
