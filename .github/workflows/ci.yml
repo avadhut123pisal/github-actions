@@ -39,9 +39,10 @@ jobs:
       - name: Run tests
         run: make cover
       - uses: codecov/codecov-action@v2
+        run
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: cover.out
+          files: ./cover.out
           flags: unittests # optional
           name: codecov-umbrella # optional
           fail_ci_if_error: true # optional (default = false)
