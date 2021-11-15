@@ -39,7 +39,6 @@ jobs:
       - name: Run tests
         run: make cover
       - uses: codecov/codecov-action@v2
-        run
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./cover.out
