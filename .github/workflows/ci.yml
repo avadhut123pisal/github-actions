@@ -40,7 +40,7 @@ jobs:
         run: make cover
       - uses: codecov/codecov-action@v2
         with:
-          # token: ${{ secrets.CODECOV_TOKEN }}
+          token: ${{ secrets.CODECOV_TOKEN }}
           files: ./cover.out
           flags: unittests # optional
           name: codecov-umbrella # optional
