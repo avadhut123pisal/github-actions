@@ -13,6 +13,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   lint:
+    name: lint
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -28,6 +29,8 @@ jobs:
         with:
           version: v1.29
   test:
+    name: test
+    needs: lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -41,7 +44,7 @@ jobs:
       - uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./cover.out
+          files: cover.out
           flags: unittests # optional
           name: codecov-umbrella # optional
           fail_ci_if_error: true # optional (default = false)
