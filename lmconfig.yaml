@@ -1,0 +1,21 @@
+lmEnvVars:
+  resource:
+    - name: SERVICE_ACCOUNT_NAME
+      valueFrom:
+        fieldRef:
+          fieldPath: spec.serviceAccountName
+    - name: SERVICE_NAMESPACE
+      valueFrom:
+        fieldRef:
+          fieldPath: metadata.labels['app-namespace']
+    - name: SERVICE_NAME
+      valueFrom:
+        fieldRef:
+          fieldPath: metadata.labels['app-name']
+  operation:
+    - name: COMPANY_NAME
+      value: XYZ Corporation
+    - name: OTLP_ENDPOINT
+      value: lmotel-svc:4317
+    - name: OTEL_JAVAAGENT_ENABLED
+      value: true
