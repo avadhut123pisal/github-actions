@@ -14,7 +14,7 @@ lmEnvVars:
           fieldPath: metadata.labels['app-name']
   operation:
     - name: COMPANY_NAME
-      value: BBB Corporation
+      value: PPP Corporation
     - name: OTLP_ENDPOINT
       value: lmotel-svc:4317
     - name: OTEL_JAVAAGENT_ENABLED
