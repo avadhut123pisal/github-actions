@@ -16,6 +16,6 @@ lmEnvVars:
     - name: COMPANY_NAME
       value: PPP Corporation
     - name: OTLP_ENDPOINT
-      value: lmotel-svc.logicmonitor.svc.cluster.local:55680
+      value: lmotel-svc:4317
     - name: OTEL_JAVAAGENT_ENABLED
       value: true
