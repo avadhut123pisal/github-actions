@@ -9,6 +9,6 @@ objectSelector:
     - key: tier
       operator: In
       values: ["frontend","backend"]
- namespaceSelector:
+  namespaceSelector:
     matchLabels:
       environment: development
