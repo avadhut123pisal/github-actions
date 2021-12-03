@@ -4,11 +4,11 @@ metadata:
   name: lm-webhook-mutating-webhook-configuration
 webhooks:
 - name: lm-webhook-svc.lm-webhook.svc.cluster.local
-objectSelector:
-  matchExpressions:
+  objectSelector:
+    matchExpressions:
     - key: tier
       operator: In
       values: ["frontend","backend"]
-  namespaceSelector:
-    matchLabels:
-      environment: development
+   namespaceSelector:
+     matchLabels:
+       environment: development
