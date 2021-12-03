@@ -6,9 +6,16 @@ webhooks:
 - name: lm-webhook-svc.lm-webhook.svc.cluster.local
   objectSelector:
     matchExpressions:
-    - key: tier
-      operator: In
-      values: ["frontend","backend"]
+      - key: type
+        operator: In
+        values:
+        - application
+        - service
+    matchLabels:
+        tier: backend
   namespaceSelector:
-      matchLabels:
-        environment: development
+      matchExpressions:
+      - key: environment
+        operator: In
+        values:
+        - dev
