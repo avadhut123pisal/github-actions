@@ -10,7 +10,6 @@ webhooks:
         operator: In
         values:
         - application
-        - service
     matchLabels:
         tier: backend
   namespaceSelector:
