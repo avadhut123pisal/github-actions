@@ -19,7 +19,7 @@ lmEnvVars:
   operation:
     - env:
         name: COMPANY_NAME
-        value: AAA Corporation
+        value: BBBB Corporation
       overrideDisabled: true 
     - env:
         name: OTLP_ENDPOINT
