@@ -10,7 +10,7 @@ lmEnvVars:
   operation:
     - env:
         name: COMPANY_NAME
-        value: ABC Corporation
+        value: BBB Corporation
       overrideDisabled: true 
     - env:
         name: EXPORTER_ENDPOINT
