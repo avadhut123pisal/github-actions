@@ -5,17 +5,12 @@ metadata:
 webhooks:
 - name: lm-webhook-svc.lm-webhook.svc.cluster.local
   objectSelector:
-    matchExpressions:
-      - key: type
-        operator: In
-        values:
-        - application
-        - service
     matchLabels:
-        tier: backend
+        lm-webhook: enabled
   namespaceSelector:
       matchExpressions:
       - key: environment
         operator: In
         values:
         - dev
+        - staging
