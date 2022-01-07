@@ -10,10 +10,10 @@ lmEnvVars:
   operation:
     - env:
         name: COMPANY_NAME
-        value: BBB Corporation
+        value: ABC Corporation
       overrideDisabled: true 
     - env:
-        name: EXPORTER_ENDPOINT
+        name: OTLP_ENDPOINT
         value: lmotel-svc.logicmonitor.svc.cluster.local:4317
       overrideDisabled: true 
     - env:
