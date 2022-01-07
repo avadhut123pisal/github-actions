@@ -18,7 +18,7 @@ lmEnvVars:
       overrideDisabled: true 
     - env:
         name: OTEL_JAVAAGENT_ENABLED
-        value: true
+        value: false
       overrideDisabled: true
     - env:
         name: DEPLOYMENT_ENV
