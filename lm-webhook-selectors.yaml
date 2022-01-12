@@ -1,16 +1,16 @@
 apiVersion: admissionregistration.k8s.io/v1
 kind: MutatingWebhookConfiguration
 metadata:
-	name: test-mutatingWebhookConfiguration
+  name: test-mutatingWebhookConfiguration
 webhooks:
 - name: test-webhook
-	objectSelector:
-		matchLabels:
-			foo: bar
-	namespaceSelector:
-		matchExpressions:
-		- key: environment
-			operator: In
-			values:
-			- dev
-			- staging
+  objectSelector:
+    matchLabels:
+      foo: bar
+  namespaceSelector:
+    matchExpressions:
+    - key: environment
+      operator: In
+      values:
+      - dev
+      - staging
