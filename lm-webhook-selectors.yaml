@@ -13,4 +13,3 @@ webhooks:
       operator: In
       values:
       - dev
-      - staging
