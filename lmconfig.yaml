@@ -5,7 +5,7 @@ lmEnvVars:
         valueFrom:
           fieldRef:
             fieldPath: spec.serviceAccountName
-      resAttrName: service-account.name
+      resAttrName: serviceaccount.name
       overrideDisabled: true
   operation:
     - env:
