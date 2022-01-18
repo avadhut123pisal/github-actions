@@ -13,7 +13,7 @@ lmEnvVars:
         value: ABC Corporation
       overrideDisabled: true 
     - env:
-        name: OTLP_ENDPOINT
+        name: EXPORTER_ENDPOINT
         value: lmotel-svc.logicmonitor.svc.cluster.local:4317
       overrideDisabled: true 
     - env:
