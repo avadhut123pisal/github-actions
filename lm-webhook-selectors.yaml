@@ -6,7 +6,7 @@ webhooks:
 - name: test-webhook
   objectSelector:
     matchLabels:
-      foo: bar
+      lm-webhook: enabled
   namespaceSelector:
     matchExpressions:
     - key: environment
