@@ -7,6 +7,16 @@ lmEnvVars:
             fieldPath: spec.serviceAccountName
       resAttrName: serviceaccount.name
       overrideDisabled: true
+    - env:
+        name: SERVICE_NAMESPACE
+        valueFrom:
+          fieldRef:
+            fieldPath: metadata.labels['app-namespace']
+    - env:
+        name: SERVICE_NAME
+        valueFrom:
+          fieldRef:
+            fieldPath: metadata.labels['app-name']
   operation:
     - env:
         name: COMPANY_NAME
