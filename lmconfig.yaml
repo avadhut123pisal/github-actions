@@ -19,7 +19,7 @@ lmEnvVars:
             fieldPath: metadata.labels['app-name']
     - env:
         name: COMPANY_NAME
-        value: ABC Corporation
+        value: ABC-Corporation
       overrideDisabled: true
       
   operation:
