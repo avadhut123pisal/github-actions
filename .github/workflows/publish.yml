@@ -1,6 +1,11 @@
 name: build
 on:
   workflow_dispatch:
+    # inputs:
+    #   version:
+    #     description: Bump Version
+    #     default: v0.0.1
+    #     required: true
 jobs:
   build:
     name: Build
@@ -25,6 +30,10 @@ jobs:
       - name: Build an image from Dockerfile
         run: |
           docker build -t ghcr.io/${{ github.repository_owner }}/gotracingapp:v0.0.1-alpha .
+
+      - name: Build an image for reloader
+        run: |
+          docker build -t ghcr.io/${{ github.repository_owner }}/reloader:v0.0.1-alpha ./reloader/.
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
