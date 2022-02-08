@@ -34,9 +34,6 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: ghcr.io/${{ github.repository_owner }}/${{ env.LM_K8S_WEBHOOK_IMAGE_NAME }}
-          tags: |
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
 
       # - name: Build an image from Dockerfile for lm-webhook
       #   run: |
