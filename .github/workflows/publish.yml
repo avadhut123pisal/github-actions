@@ -37,7 +37,7 @@ jobs:
 
       - name: Build an image from Dockerfile for $LM_K8S_WEBHOOK_IMAGE_NAME
         run: |
-          LM_K8S_WEBHOOK_IMAGE_TAG=${{ steps.${{ env.LM_K8S_WEBHOOK_IMAGE_NAME }}-meta.outputs.tags }}
+          LM_K8S_WEBHOOK_IMAGE_TAG=steps.${{ env.LM_K8S_WEBHOOK_IMAGE_NAME }}-meta.outputs.tags
           docker build -t ghcr.io/${{ github.repository_owner }}/$LM_K8S_WEBHOOK_IMAGE_NAME:$LM_K8S_WEBHOOK_IMAGE_TAG .
 
       - name: Run Trivy vulnerability scanner for $LM_K8S_WEBHOOK_IMAGE_NAME
