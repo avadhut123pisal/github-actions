@@ -1,5 +1,8 @@
 name: build
 on:
+  release:
+    types: [published]
+    
   workflow_dispatch:
 
 env:
@@ -7,7 +10,7 @@ env:
   LM_RELOADER_IMAGE_NAME: lm-reloader
 
 jobs:
-  build:
+  build-and-publish:
     name: Build
     runs-on: ubuntu-latest
     permissions:
