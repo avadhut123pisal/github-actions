@@ -33,46 +33,46 @@ jobs:
         id: $LM_K8S_WEBHOOK_IMAGE_NAME-meta
         uses: docker/metadata-action@v3
         with:
-          images: ghcr.io/${{ github.repository_owner }}/${{ env.LM_K8S_WEBHOOK_IMAGE_NAME }}
+          images: ghcr.io/${{ github.repository_owner }}/$LM_K8S_WEBHOOK_IMAGE_NAME
 
-      - name: Build an image from Dockerfile for ${{ env.LM_K8S_WEBHOOK_IMAGE_NAME }}
+      - name: Build an image from Dockerfile for $LM_K8S_WEBHOOK_IMAGE_NAME
         run: |
-          docker build -t ghcr.io/${{ github.repository_owner }}/${{ env.LM_K8S_WEBHOOK_IMAGE_NAME }}:${{ steps.${{ env.LM_K8S_WEBHOOK_IMAGE_NAME }}-meta.outputs.tags }} .
+          docker build -t ghcr.io/${{ github.repository_owner }}/$LM_K8S_WEBHOOK_IMAGE_NAME:${{ steps.$LM_K8S_WEBHOOK_IMAGE_NAME-meta.outputs.tags }} .
 
       - name: Run Trivy vulnerability scanner for $LM_K8S_WEBHOOK_IMAGE_NAME
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'ghcr.io/${{ github.repository_owner }}/${{ env.LM_K8S_WEBHOOK_IMAGE_NAME }}:${{ steps.${{ env.LM_K8S_WEBHOOK_IMAGE_NAME }}-meta.outputs.tags }}'
+          image-ref: 'ghcr.io/${{ github.repository_owner }}/$LM_K8S_WEBHOOK_IMAGE_NAME:${{ steps.$LM_K8S_WEBHOOK_IMAGE_NAME-meta.outputs.tags }}'
           format: 'table'
           exit-code: '1'
           ignore-unfixed: true
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
 
-      - name: ${{ env.LM_RELOADER_IMAGE_NAME }} docker meta
-        id: ${{ env.LM_RELOADER_IMAGE_NAME }}-meta
+      - name: $LM_RELOADER_IMAGE_NAME docker meta
+        id: $LM_RELOADER_IMAGE_NAME-meta
         uses: docker/metadata-action@v3
         with:
-          images: ghcr.io/${{ github.repository_owner }}/${{ env.LM_RELOADER_IMAGE_NAME }}
+          images: ghcr.io/${{ github.repository_owner }}/$LM_RELOADER_IMAGE_NAME
 
-      - name: Build an image for ${{ env.LM_RELOADER_IMAGE_NAME }}
+      - name: Build an image for $LM_RELOADER_IMAGE_NAME
         run: |
-          docker build -t ghcr.io/${{ github.repository_owner }}/${{ env.LM_RELOADER_IMAGE_NAME }}:${{ steps.${{ env.LM_RELOADER_IMAGE_NAME }}-meta.outputs.tags }} ./reloader/.
+          docker build -t ghcr.io/${{ github.repository_owner }}/$LM_RELOADER_IMAGE_NAME:${{ steps.$LM_RELOADER_IMAGE_NAME-meta.outputs.tags }} ./reloader/.
 
-      - name: Run Trivy vulnerability scanner for ${{ env.LM_RELOADER_IMAGE_NAME }}
+      - name: Run Trivy vulnerability scanner for $LM_RELOADER_IMAGE_NAME
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'ghcr.io/${{ github.repository_owner }}/${{ env.LM_RELOADER_IMAGE_NAME }}:${{ steps.${{ env.LM_RELOADER_IMAGE_NAME }}-meta.outputs.tags }}'
+          image-ref: 'ghcr.io/${{ github.repository_owner }}/$LM_RELOADER_IMAGE_NAME:${{ steps.$LM_RELOADER_IMAGE_NAME-meta.outputs.tags }}'
           format: 'table'
           exit-code: '1'
           ignore-unfixed: true
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
 
-      - name: Push an image for ${{ env.LM_K8S_WEBHOOK_IMAGE_NAME }}
+      - name: Push an image for $LM_K8S_WEBHOOK_IMAGE_NAME
         run: |
-          docker push ghcr.io/${{ github.repository_owner }}/${{ env.LM_K8S_WEBHOOK_IMAGE_NAME }}:${{ steps.${{ env.LM_K8S_WEBHOOK_IMAGE_NAME }}-meta.outputs.tags }}
+          docker push ghcr.io/${{ github.repository_owner }}/$LM_K8S_WEBHOOK_IMAGE_NAME:${{ steps.$LM_K8S_WEBHOOK_IMAGE_NAME-meta.outputs.tags }}
 
-      - name: Push an image for ${{ env.LM_RELOADER_IMAGE_NAME }}
+      - name: Push an image for $LM_RELOADER_IMAGE_NAME
         run: |
-          docker push ghcr.io/${{ github.repository_owner }}/${{ env.LM_RELOADER_IMAGE_NAME }}:${{ steps.${{ env.LM_RELOADER_IMAGE_NAME }}-meta.outputs.tags }}
+          docker push ghcr.io/${{ github.repository_owner }}/$LM_RELOADER_IMAGE_NAME:${{ steps.$LM_RELOADER_IMAGE_NAME-meta.outputs.tags }}
