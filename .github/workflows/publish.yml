@@ -68,6 +68,15 @@ jobs:
           ignore-unfixed: true
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
+      
+      - name: Build and push image
+        uses: docker/build-push-action@v2.9.0
+        with:
+          context: .
+          file: ./Dockerfile
+          platforms: linux/amd64
+          tags: ${{ steps.lm-webhook-meta.outputs.tags }}
+          labels: ${{ steps.lm-webhook-meta.outputs.labels }}
 
       - name: Push an image for lm-webhook
         run: |
