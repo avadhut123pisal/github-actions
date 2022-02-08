@@ -78,10 +78,4 @@ jobs:
           tags: ${{ steps.lm-webhook-meta.outputs.tags }}
           labels: ${{ steps.lm-webhook-meta.outputs.labels }}
 
-      - name: Push an image for lm-webhook
-        run: |
-          docker push ghcr.io/${{ github.repository_owner }}/${{ env.LM_K8S_WEBHOOK_IMAGE_NAME }}:v0.0.1-alpha
-
-      - name: Push an image for lm-reloader
-        run: |
-          docker push ghcr.io/${{ github.repository_owner }}/${{ env.LM_RELOADER_IMAGE_NAME }}:v0.0.1-alpha
+     
