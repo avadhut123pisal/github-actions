@@ -4,7 +4,6 @@ on:
     types: [published]
     
   workflow_dispatch:
-
 env:
   LM_K8S_WEBHOOK_IMAGE_NAME: lm-webhook
   LM_RELOADER_IMAGE_NAME: lm-reloader
