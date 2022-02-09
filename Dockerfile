@@ -15,7 +15,7 @@ COPY gotracing.go gotracing.go
 # Build
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO111MODULE=on go build -a -o gotracing gotracing.go
 
-FROM alpine:3.12
+FROM alpine:3.14.2
 RUN apk --no-cache add ca-certificates
 COPY --from=builder /workspace/gotracing /usr/local/bin/gotracing/
 WORKDIR /usr/local/bin/gotracing
