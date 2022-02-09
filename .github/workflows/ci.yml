@@ -154,10 +154,10 @@ jobs:
           severity: 'CRITICAL,HIGH'
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v1
-        category: lm-webhook-scan-results
         if: always() 
         with:
           sarif_file: 'trivy-results-lm-webhook-image.sarif'
+          category: lm-webhook-scan-results
       - name: Build an image for lm-reloader
         run: |
           docker build -t ghcr.io/${{ github.repository_owner }}/${{ env.LM_RELOADER_IMAGE_NAME }}:${{ env.LM_RELOADER_VERSION }} ./reloader/.
@@ -173,8 +173,8 @@ jobs:
           severity: 'CRITICAL,HIGH'
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v1
-        category: lm-reloader-scan-results
         if: always() 
         with:
           sarif_file: 'trivy-results-lm-reloader-image.sarif'
+          category: lm-reloader-scan-results
       
