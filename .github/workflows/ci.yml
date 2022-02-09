@@ -156,7 +156,7 @@ jobs:
         uses: github/codeql-action/upload-sarif@v1
         if: always() 
         with:
-          sarif_file: 'trivy-results-lm-webhook-image.sariff'
+          sarif_file: 'trivy-results-lm-webhook-image.sarif'
       - name: Build an image for lm-reloader
         run: |
           docker build -t ghcr.io/${{ github.repository_owner }}/${{ env.LM_RELOADER_IMAGE_NAME }}:${{ env.LM_RELOADER_VERSION }} ./reloader/.
@@ -174,5 +174,5 @@ jobs:
         uses: github/codeql-action/upload-sarif@v1
         if: always() 
         with:
-          sarif_file: 'trivy-results-lm-reloader-image.sariff'
+          sarif_file: 'trivy-results-lm-reloader-image.sarif'
       
