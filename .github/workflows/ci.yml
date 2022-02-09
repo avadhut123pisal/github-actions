@@ -131,7 +131,6 @@ jobs:
 
     vulnerabilities-scan:  
       name: vulnerabilities-scan
-      needs: lint
       runs-on: ubuntu-latest
       steps:
       - name: Set env vars for the job
