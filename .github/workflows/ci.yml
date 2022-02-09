@@ -130,6 +130,10 @@ jobs:
   #         sarif_file: code-scan-results.sarif
 
     vulnerabilities-scan:  
+      name: vulnerabilities-scan
+      needs: lint
+      runs-on: ubuntu-latest
+      steps:
       - name: Set env vars for the job
         run: |
           grep -v '\#' versions.txt | grep lm-webhook | awk -F= '{print "LM_WEBHOOK_VERSION="$2}' >> $GITHUB_ENV
