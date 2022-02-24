@@ -6,7 +6,7 @@ webhooks:
 - name: lm-webhook-svc.lm-webhook.svc.cluster.local
   objectSelector:
     matchLabels:
-      lm-webhook: enabled
+      lm-k8s-webhook: enabled
   namespaceSelector:
     matchExpressions:
     - key: environment
