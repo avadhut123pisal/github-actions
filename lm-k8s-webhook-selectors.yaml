@@ -1,12 +1,12 @@
 apiVersion: admissionregistration.k8s.io/v1
 kind: MutatingWebhookConfiguration
 metadata:
-  name: test-mutatingWebhookConfiguration
+  name: lm-webhook-mutating-webhook-configuration
 webhooks:
-- name: test-webhook
+- name: lm-webhook-svc.lm-webhook.svc.cluster.local
   objectSelector:
     matchLabels:
-      lm-webhook: enabled
+      lm-k8s-webhook: enabled
   namespaceSelector:
     matchExpressions:
     - key: environment
