@@ -20,21 +20,25 @@ Set the `LM_ACCESS_ID` and `LM_ACCESS_KEY` for using the LMv1 authentication. Th
 
 ### Getting Started
 
-Here's an example code snippet for configuring the lm-zap-hook:
+Here's an example code snippet for configuring the `lm-zap-hook`:
 
 ```go
-
     // create a new Zap logger
 	logger, _ := zap.NewProduction()
+	defer logger.Sync() // flushes buffer, if any
+
+	// create resource tags for mapping the log messages to a unique LogicMonitor resource
+    resourceTags := map[string]string{"system.displayname": "test-device"}
 
   	// create a new core that sends zapcore.WarnLevel and above messages to Logicmonitor Platform
-	lmCore, err := NewLMCore(context.Background(), 
-      Params{ResourceMapperTags: resourceTags}, 
-      WithLogLevel(zapcore.WarnLevel))
+	lmCore, err := lmzaphook.NewLMCore(context.Background(),
+		lmzaphook.Params{ResourceMapperTags: resourceTags},
+		lmzaphook.WithLogLevel(zapcore.WarnLevel),
+	)
 
 	// Wrap a NewTee to send log messages to both your main logger and to Logicmonitor
-	logger.WithOptions(zap.WrapCore(func(core zapcore.Core) zapcore.Core {
-		return zapcore.NewTee(core, lmCore)
+	logger = logger.WithOptions(zap.WrapCore(func(core zapcore.Core) zapcore.Core {
+	  return zapcore.NewTee(core, lmCore)
 	}))
 
 	// This message will only go to the main logger
